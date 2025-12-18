@@ -1,0 +1,163 @@
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    background: #f2f2f2;
+    padding: 0;
+    text-align: center;
+    background-image: url(Dardania.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #222;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #000;
+    color: #fff;
+    border-radius: 6px;
+}
+
+
+
+h3{ 
+    color: #333;
+    font-size: 30px;
+}
+
+h1{
+    text-align: center;
+    color: #222;
+    margin-top: 20px;
+}
+
+h2{
+    display: inline-block;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: 0.3s;
+    cursor: pointer;
+    color: #222;
+    padding: 12px 20px;
+}
+
+h2:hover {
+    background: black;
+    border-radius: 6px;
+    color: white;
+}
+
+h2:first-of-type {
+    margin-left: 0;
+}
+
+h1 + h2 {
+    display: block;
+    text-align: center;
+}
+
+body > h2 {
+    display: inline-block;
+    text-align: center;
+}
+
+img{
+    width: 500;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+p {
+    width: 400px;
+    margin: 10px auto 30px auto;
+    background: #ffff;
+    text-align: left;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.detaje-box {
+    width: 500px;
+    text-align: left;
+    padding: 25px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    margin: 40px auto;
+}
+
+.detaje-box img {
+    width: 100%;
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.detaje-link {
+    display:  inline-block;
+    margin-bottom: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.back-btn {
+    text-decoration: underline;
+    font-size:  18px;
+}
+
+.artikulli-i-plote-btn {
+    color: #fff;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    background: #000000;
+    text-decoration: underline;
+}
+
+
+
+.rrethn{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 20px;
+}
+
+.rreth{
+    background: rgba(255,255,255,0.95);
+    max-width: 900px;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+
+}
+
+.rreth h2{
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 0.5px;
+    color: #1b1b1b;
+    margin-bottom: 30px;
+}
+
+.rreth p {
+    color: #333;
+    text-align: justify;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
