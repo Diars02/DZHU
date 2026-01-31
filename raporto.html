@@ -9,14 +9,15 @@
 <body>
     <h1>Radio Dardania</h1>
      <div class="nav">
-    <button onclick="location.href='home.html'">Home</button>
-    <button onclick="location.href='rreth.html'"> Rreth nesh</button>
-    <button onclick="location.href='login.html'">Login</button>
-    <button onclick="location.href='raporto.html'">Raporto lajme</button>
-    <button onclick="location.href='events.html'">Events</button>
+      <button onclick="location.href='home.html'">Home</button>
+      <button onclick="location.href='rreth.html'"> Rreth nesh</button>
+      <button onclick="location.href='login.html'">Login</button>
+      <button onclick="location.href='raporto.html'">Raporto lajme</button>
+      <button onclick="location.href='events.html'">Events</button>
+      <button onclick="logout()" class="btn-logout">Logout</button>    
     </div>
 
-  <div class="detaje-box">
+    <div class="detaje-box">
     <h2>Raporto një lajm</h2>
 
     <label>Titulli i lajmit</label>
@@ -38,7 +39,38 @@
        </div>
     </footer>
 
-     <script src="raporto.js"></script>
+     <script>
+    window.onload = function () {
+      
+        let isLoggedIn = localStorage.getItem("loggedIn");
+
+        if (isLoggedIn !== "true") {
+            alert("Duhet të jeni të kyçur për të raportuar lajme!");
+            window.location.href = "login.html";
+        }
+    };
+
+    function submitReport() {
+        let title = document.getElementById("title").value.trim();
+        let content = document.getElementById("content").value.trim();
+
+        if (title === "" || content === "") {
+            alert("Ju lutem plotësoni të gjitha fushat!");
+            return;
+        }
+
+        alert("Lajmi me titull: '" + title + "' u dërgua me sukses!");
+        
+        document.getElementById("title").value = "";
+        document.getElementById("content").value = "";
+    }
+    
+    function logout() {
+      localStorage.removeItem("Logged in");
+      alert("U çkyçët me sukses");
+      window.location.href = "login.html"; 
+    }
+</script>
 
 </body>
 </html>

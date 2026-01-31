@@ -15,6 +15,7 @@
         <button onclick="location.href='login.html'">Login</button>
         <button onclick="location.href='raporto.html'">Raporto lajme</button>
         <button onclick="location.href='events.html'">Events</button>
+        <button onclick="logout()" class="btn-logout">Logout</button>
     </div>
 
     <div class="login-container">
@@ -25,7 +26,7 @@
 
         <button id="loginBtn">Login</button>
 
-        <p>Don't have an account? <a href="register.html">Create one</a></p>
+        <p>Don't have an account? <a href="regjistro.html">Create one</a></p>
     </div>
 
     <footer class="footer">
@@ -37,6 +38,35 @@
         </div>
     </footer>
 
-    <script src="login.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+    const btn = document.getElementById("loginBtn");
+
+    if (!btn) {
+        console.error("loginBtn nuk u gjet!");
+        return;
+    }
+
+    btn.addEventListener("click", function () {
+
+        const user = document.getElementById("username").value.trim();
+        const pass = document.getElementById("password").value.trim();
+
+        if (user === "" || pass === "") {
+            alert("Plotëso të gjitha fushat.");
+            return;
+        }
+
+        if (user === "admin" && pass === "1234") {
+            alert("Login i suksesshëm");
+            localStorage.setItem("loggedIn", "true");
+            window.location.href = "raporto.html";
+        } else {
+            alert("Username ose password gabim");
+        }
+    });
+});
+    </script>
 </body>
 </html>

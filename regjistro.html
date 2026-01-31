@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regjistrohu - Radio Dardania</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Radio Dardania</h1>
+    <div class="nav">
+        <button onclick="location.href='home.html'">Home</button>
+        <button onclick="location.href='login.html'">Login</button>
+    </div>
+
+    <div class="login-container">
+        <h3>Krijo llogari të re</h3>
+        <input type="text" id="newUsername" placeholder="Username i ri">
+        <input type="password" id="newPassword" placeholder="Password i ri">
+        <button id="registerBtn">Regjistrohu</button>
+        <p>Ke llogari? <a href="login.html">Identifikohu këtu</a></p>
+    </div>
+
+    <script>
+        document.getElementById("registerBtn").onclick = function() {
+            let u = document.getElementById("newUsername").value;
+            let p = document.getElementById("newPassword").value;
+
+            if(u === "" || p === "") {
+                alert("Plotëso fushat!");
+            } else {
+                alert("Llogaria u krijua me sukses (Demo)!");
+                window.location.href = "login.html";
+            }
+        };
+    </script>
+</body>
+</html>

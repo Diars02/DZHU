@@ -271,3 +271,9 @@ label {
 .login-container {
     border: 5px solid red;
 }
+
+.btn-logout:hover {
+    background-color: #000;
+    color: #fff;
+    border-radius: 6px;
+}
