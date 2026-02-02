@@ -277,3 +277,16 @@ label {
     color: #fff;
     border-radius: 6px;
 }
+
+.lajm-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.lajm-card:hover {
+    transform: translateY(-5px);
+}

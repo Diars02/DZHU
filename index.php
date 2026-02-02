@@ -11,6 +11,13 @@ include_once 'klasa/lajme.php';
 $database = new Database();
 $db = $database->getConnection();
 $lajmiObj = new Lajme($db);
+
+if (isset($_GET['fshij'])) {
+    $lajmiObj->fshijLajm($_GET['fshij']);
+    header("Location: index.php");
+    exit();
+}
+
 $lajmet = $lajmiObj->merrLajmet();
 ?>
 
@@ -38,7 +45,19 @@ $lajmet = $lajmiObj->merrLajmet();
                     <div style="border-bottom: 1px solid #ccc; margin-bottom: 15px; padding-bottom: 10px;">
                         <h3><?php echo htmlspecialchars($l['titulli']); ?></h3>
                         <p><?php echo nl2br(htmlspecialchars($l['permbajtja'])); ?></p>
-                        <small>Postuar nga: <strong><?php echo $l['autori']; ?></strong> me datë <?php echo $l['data_krijimit']; ?></small>
+                        <small>Postuar nga: <strong><?php echo $l['autori']; ?></strong></small>
+                        
+                        <div style="margin-top: 10px;">
+                            <a href="index.php?fshij=<?php echo $l['id']; ?>" 
+                               onclick="return confirm('A jeni i sigurt?')" 
+                               style="color: red; font-size: 0.8em; text-decoration: none; border: 1px solid red; padding: 2px 5px; border-radius: 3px; margin-right: 5px;">
+                               Fshij Lajmin
+                            </a>
+                            <a href="update.php?id=<?php echo $l['id']; ?>" 
+                               style="color: blue; font-size: 0.8em; text-decoration: none; border: 1px solid blue; padding: 2px 5px; border-radius: 3px;">
+                               Edit (Ndrysho)
+                            </a>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
