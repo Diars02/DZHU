@@ -1,21 +1,46 @@
 <?php
 session_start();
+include_once 'config/databaze.php';
+include_once 'klasa/user.php';
+
+$gabim = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user = $_POST["username"];
-    $pass = $_POST["password"];
+    $database = new Database();
+    $db = $database->getConnection();
+    $userObj = new User($db);
 
-    $users = file("users.txt", FILE_IGNORE_NEW_LINES);
+    $u = $userObj->login($_POST['username'], $_POST['password']);
 
-    foreach ($users as $u) {
-        list($u_name, $u_pass) = explode("|", $u);
-        if ($u_name === $user && password_verify($pass, $u_pass)) {
-            $_SESSION["user"] = $user;
-            header("Location: index.php");
-            exit;
-        }
+    if ($u) {
+        $_SESSION['user_id'] = $u['id'];
+        $_SESSION['username'] = $u['username'];
+        header("Location: index.php");
+        exit();
+    } else {
+        $gabim = "Username ose Password gabim!";
     }
-
-    $error = "Login i gabuar";
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Radio Dardania</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Identifikohu</h2>
+        <?php 
+            if(isset($_GET['sukses'])) echo "<p style='color:green;'>Llogaria u krijua! Kyçu tani.</p>";
+            if($gabim != "") echo "<p style='color:red;'>$gabim</p>";
+        ?>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
